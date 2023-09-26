@@ -3,23 +3,82 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShapeCalculator.Triangle"
              Title="Triangle">
-    <FlexLayout Direction="Row" HorizontalOptions="Center">
-        <VerticalStackLayout x:Name="TriangleImages" FlexLayout.Basis="200" FlexLayout.Order="0">
-            <Label
-                Text="Welcome to .NetMaui"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                BackgroundColor="Black"/>
-            <Label
-                Text="Test"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"/>
-        </VerticalStackLayout>
-        <VerticalStackLayout FlexLayout.Basis="200" >
-            <Label
-                Text="Second Test"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"/>
-        </VerticalStackLayout>
-    </FlexLayout>
+    <ScrollView>
+        <FlexLayout Direction="Row">
+            <VerticalStackLayout x:Name="TriangleImages" FlexLayout.Basis="350" FlexLayout.Order="0">
+                <HorizontalStackLayout Margin="0,30,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="dotnet_bot.png" HorizontalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,30,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="dotnet_bot.png"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,35,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image Source="dotnet_bot.png"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name ="TriangleEntries"  FlexLayout.Basis="350" FlexLayout.Order="1" HorizontalOptions="Center">
+                
+                
+                <Label
+                    Text="Area"
+                    VerticalOptions="Center"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Edge 1" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTriangleArea1" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Edge 2" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTriangleArea2" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Edge 3" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTriangleArea3" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                
+                
+                <Label
+                    Text="Perimeter"
+                    VerticalOptions="Center" Margin="0,25,0,0"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Side 1" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTrianglePerimeter1" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Side 2" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTrianglePerimeter2" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Side 3" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTrianglePerimeter3" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                
+                
+                <Label
+                    Text="Volume-Cone"
+                    VerticalOptions="Center" Margin="0,25,0,0"/> 
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Base" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTriangleVolumeCone1" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Radius(r)" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTriangleVolumeCone2" WidthRequest="200"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Height(h)" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTriangleVolumeCone3" WidthRequest="200"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="TrianglePickers" FlexLayout.Basis="350" FlexLayout.Order="2" HorizontalOptions="Center">
+                <Label
+                    Text="Third Test"
+                    VerticalOptions="Center"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="TriangleResults" FlexLayout.Basis="350" FlexLayout.Order="3" HorizontalOptions="Center">
+                <Label
+                    Text="Fourth Test"
+                    VerticalOptions="Center"/>
+            </VerticalStackLayout>
+        </FlexLayout>
+    </ScrollView>
 </ContentPage>
