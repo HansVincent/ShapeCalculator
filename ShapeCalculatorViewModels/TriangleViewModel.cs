@@ -11,9 +11,8 @@ namespace ShapeCalculator.ShapeCalculatorViewModels
 {
     internal class TriangleViewModel: INotifyPropertyChanged
     {
-        private double _edge1;
-        private double _edge2;
-        private double _edge3;
+        private double _base;
+        private double _areaheight;
         private double _side1;
         private double _side2;
         private double _side3;
@@ -21,45 +20,31 @@ namespace ShapeCalculator.ShapeCalculatorViewModels
         private double _height;
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public double Edge1
+        public double Base
         {
             get
             {
-                return _edge1;
+                return _base;
             }
             set
             {
-                _edge1 = value;
-                OnPropertyChanged(nameof(Edge1));
+                _base = value;
+                OnPropertyChanged(nameof(_base));
             }
         }
 
-        public double Edge2
+        public double AreaHeight
         {
             get
             {
-                return _edge2;
+                return _areaheight;
             }
             set
             {
-                _edge2 = value;
-                OnPropertyChanged(nameof(Edge2));
+                _areaheight = value;
+                OnPropertyChanged(nameof(AreaHeight));
             }
         }
-
-        public double Edge3
-        {
-            get
-            {
-                return _edge3;
-            }
-            set
-            {
-                _edge3 = value;
-                OnPropertyChanged(nameof(Edge3));
-            }
-        }
-
         public double Side1
         {
             get

@@ -4,17 +4,9 @@
              x:Class="ShapeCalculator.Triangle"
              Title="Triangle">
     <ScrollView>
-        <FlexLayout Direction="Row">
+        <FlexLayout Direction="Row" >
             <VerticalStackLayout x:Name="TriangleImages" FlexLayout.Basis="350" FlexLayout.Order="0">
-                <HorizontalStackLayout Margin="0,30,0,0" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Image Source="dotnet_bot.png" HorizontalOptions="Center"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Margin="0,30,0,0" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Image Source="dotnet_bot.png"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Margin="0,35,0,0" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Image Source="dotnet_bot.png"/>
-                </HorizontalStackLayout>
+
             </VerticalStackLayout>
             <VerticalStackLayout x:Name ="TriangleEntries"  FlexLayout.Basis="350" FlexLayout.Order="1" HorizontalOptions="Center">
                 
@@ -23,24 +15,19 @@
                     Text="Area"
                     VerticalOptions="Center"/>
                 <HorizontalStackLayout Margin="0,25,0,0">
-                    <Label Text="Edge 1" WidthRequest="100" VerticalOptions="Center"/>
+                    <Label Text="Base" WidthRequest="100" VerticalOptions="Center"/>
                     <Border Stroke="Black">
-                        <Entry x:Name="txtTriangleArea1" WidthRequest="200"/>
+                        <Entry x:Name="txtTriangleAreaBase" WidthRequest="200"/>
                     </Border>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
-                    <Label Text="Edge 2" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleArea2" WidthRequest="200"/>
+                    <Label Text="Radius" WidthRequest="100" VerticalOptions="Center"/>
+                    <Entry x:Name="txtTriangleAreaHeight" WidthRequest="200"/>
                 </HorizontalStackLayout>
-                <HorizontalStackLayout Margin="0,25,0,0">
-                    <Label Text="Edge 3" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleArea3" WidthRequest="200"/>
-                </HorizontalStackLayout>
-                
-                
+
                 <Label
                     Text="Perimeter"
-                    VerticalOptions="Center" Margin="0,25,0,0"/>
+                    VerticalOptions="Center" Margin="0,100,0,0"/>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Side 1" WidthRequest="100" VerticalOptions="Center"/>
                     <Entry x:Name="txtTriangleSide1" WidthRequest="200"/>
@@ -57,18 +44,14 @@
                 
                 <Label
                     Text="Volume-Cone"
-                    VerticalOptions="Center" Margin="0,25,0,0"/> 
+                    VerticalOptions="Center" Margin="0,40,0,0"/> 
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Base" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleVolumeCone1" WidthRequest="200"/>
+                    <Entry x:Name="txtTriangleVolumeHeight" WidthRequest="200"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Radius(r)" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleVolumeCone2" WidthRequest="200"/>
-                </HorizontalStackLayout>
-                <HorizontalStackLayout Margin="0,25,0,0">
-                    <Label Text="Height(h)" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleVolumeCone3" WidthRequest="200"/>
+                    <Entry x:Name="txtTriangleVolumeBaseRadius" WidthRequest="200"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
             <VerticalStackLayout x:Name="TrianglePickers" FlexLayout.Basis="350" FlexLayout.Order="2" HorizontalOptions="Center">
@@ -77,15 +60,37 @@
                     VerticalOptions="Center"/>
             </VerticalStackLayout>
             <VerticalStackLayout x:Name="TriangleResults" FlexLayout.Basis="350" FlexLayout.Order="3" HorizontalOptions="Center">
-                <Label Text="Result"  Margin="0,50,0,0"/>
+                <Label Text="Result" />
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Border Stroke="Black" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45">
-                        <Label x:Name="txtTrianglePerimeterResults" Text="Test" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200"/>
+                        <Label x:Name="txtTriangleAreaResults" Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200"/>
                     </Border>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <Button Text="Calculate" BorderColor="Black" Clicked="OnCalculatePerimeterButtonClicked" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="0,5,0,0"/>
-                    <Button Text ="Clear" TextColor="Black" BackgroundColor="White" BorderColor="Black" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="10,5,0,0" WidthRequest="110"/>
+                    <Button Text="Calculate" BorderColor="Black" Clicked="OnCalculateTriangleAreaButtonClicked" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="0,5,0,0"/>
+                    <Button Text ="Clear" TextColor="Black" Clicked="OnClearTriangleAreaButtonClicked" BackgroundColor="White" BorderColor="Black" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="10,5,0,0" WidthRequest="110"/>
+                </HorizontalStackLayout>
+
+                <Label Text="Result"  Margin="0,110,0,0"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Border Stroke="Black" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45">
+                        <Label x:Name="txtTrianglePerimeterResults" Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Button Text="Calculate" BorderColor="Black" Clicked="OnCalculateTrianglePerimeterButtonClicked" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="0,5,0,0"/>
+                    <Button Text ="Clear" TextColor="Black" Clicked="OnClearTrianglePerimeterButtonClicked" BackgroundColor="White" BorderColor="Black" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="10,5,0,0" WidthRequest="110"/>
+                </HorizontalStackLayout>
+
+                <Label Text="Result"  Margin="0,90,0,0"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Border Stroke="Black" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45">
+                        <Label x:Name="txtTriangleVolumeResults" Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Button Text="Calculate" BorderColor="Black" Clicked="OnCalculateTriangleVolumeButtonClicked" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="0,5,0,0"/>
+                    <Button Text ="Clear" TextColor="Black" Clicked="OnClearTriangleVolumeButtonClicked" BackgroundColor="White" BorderColor="Black" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="10,5,0,0" WidthRequest="110"/>
                 </HorizontalStackLayout>
 
 
