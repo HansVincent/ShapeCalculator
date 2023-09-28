@@ -6,11 +6,9 @@
     <ScrollView>
         <FlexLayout Direction="Row" >
             <VerticalStackLayout x:Name="TriangleImages" FlexLayout.Basis="350" FlexLayout.Order="0">
-
+            
             </VerticalStackLayout>
             <VerticalStackLayout x:Name ="TriangleEntries"  FlexLayout.Basis="350" FlexLayout.Order="1" HorizontalOptions="Center">
-                
-                
                 <Label
                     Text="Area"
                     VerticalOptions="Center"/>
@@ -22,7 +20,9 @@
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Radius" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleAreaHeight" WidthRequest="200"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtTriangleAreaHeight" WidthRequest="200"/>
+                    </Border>
                 </HorizontalStackLayout>
 
                 <Label
@@ -30,15 +30,21 @@
                     VerticalOptions="Center" Margin="0,100,0,0"/>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Side 1" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleSide1" WidthRequest="200"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtTriangleSide1" WidthRequest="200"/>
+                    </Border>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Side 2" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleSide2" WidthRequest="200"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtTriangleSide2" WidthRequest="200"/>
+                    </Border>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Side 3" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleSide3" WidthRequest="200"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtTriangleSide3" WidthRequest="200"/>
+                    </Border>
                 </HorizontalStackLayout>
                 
                 
@@ -47,17 +53,36 @@
                     VerticalOptions="Center" Margin="0,40,0,0"/> 
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Base" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleVolumeHeight" WidthRequest="200"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtTriangleVolumeHeight" WidthRequest="200"/>
+                    </Border>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Radius(r)" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleVolumeBaseRadius" WidthRequest="200"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtTriangleVolumeBaseRadius" WidthRequest="200"/>
+                    </Border>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
             <VerticalStackLayout x:Name="TrianglePickers" FlexLayout.Basis="350" FlexLayout.Order="2" HorizontalOptions="Center">
-                <Label
-                    Text="Third Test"
-                    VerticalOptions="Center"/>
+                <Label Text="Units"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Border Stroke="black" Margin="0,20,0,0" HeightRequest="45" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Picker x:Name="pickerAreaUnit"  ItemsSource="{Binding Units}" WidthRequest="200"  SelectedIndexChanged="pickerUnits_AreaSelectedIndexChanged"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,224,0,0">
+                    <Border Stroke="black">
+                        <Picker x:Name="pickerPerimeterUnit" ItemsSource="{Binding Units}" WidthRequest="200" SelectedIndexChanged="pickerUnits_PerimeterSelectedIndexChanged"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,205,0,0">
+                    <Border Stroke="black">
+                        <Picker x:Name="pickerVolumeUnit" ItemsSource="{Binding Units}" WidthRequest="200"  SelectedIndexChanged="pickerUnits_VolumeSelectedIndexChanged"/>
+                    </Border>
+                </HorizontalStackLayout>
+
+
             </VerticalStackLayout>
             <VerticalStackLayout x:Name="TriangleResults" FlexLayout.Basis="350" FlexLayout.Order="3" HorizontalOptions="Center">
                 <Label Text="Result" />

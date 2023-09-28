@@ -1,19 +1,86 @@
 using System.ComponentModel;
 using ShapeCalculator.ShapeCalculatorViewModels;
 using System.Linq;
+using System.Collections.ObjectModel;
 namespace ShapeCalculator;
 
 public partial class Triangle : ContentPage, INotifyPropertyChanged
 {
 	TriangleViewModel thisTriangle = new TriangleViewModel();
 	BaseParameters triangleParameters = new BaseParameters();
+    private ObservableCollection<string> _units;
+    private int _unitAreaIdentifier = -1;
+    private int _unitPerimeterIdentifier = -1;
+    private int _unitVolumeIdentifier = -1;
+    public ObservableCollection<string> Units
+    {
+        get
+        {
+            return _units;
+        }
+        set
+        {
+            _units = value;
+            OnPropertyChanged(nameof(Units));
+        }
+    }
 
-	public Triangle()
-	{
-		InitializeComponent();
-	}
+    public Triangle()
+    {
+        InitializeComponent();
+        Units = new ObservableCollection<string>
+        {
+            "=Select=",
+            "Inches",
+            "Centimeters",
+            "Meters",
+            "Kilometers"
+        };
+        BindingContext = this;
+    }
 
-	private string CalculateTrianglePerimeter()
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        pickerAreaUnit.SelectedIndex = 0;
+        pickerPerimeterUnit.SelectedIndex = 0;
+        pickerVolumeUnit.SelectedIndex = 0;
+    }
+
+    private void pickerUnits_AreaSelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+        if(selectedIndex == -1)
+        {
+            selectedIndex = 0;
+        }
+        _unitAreaIdentifier = selectedIndex;
+    }
+
+    private void pickerUnits_PerimeterSelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+        if(selectedIndex == -1)
+        {
+            selectedIndex = 0;
+        }
+        _unitPerimeterIdentifier = selectedIndex;
+    }
+
+    private void pickerUnits_VolumeSelectedIndexChanged(object sender, EventArgs e)
+    {
+        var picker = (Picker)sender;
+        int selectedIndex = picker.SelectedIndex;
+        if(selectedIndex == - 1)
+        {
+            selectedIndex = 0;
+        }
+        _unitVolumeIdentifier = selectedIndex;
+    }
+
+    private string CalculateTrianglePerimeter()
 	{
 		double side1 = 0;
 		double side2 = 0;
@@ -42,7 +109,30 @@ public partial class Triangle : ContentPage, INotifyPropertyChanged
 		{
 			thisTriangle.Side3 = 0;
 		}
-		return Math.Round((thisTriangle.Side1 + thisTriangle.Side2 + thisTriangle.Side3), 2).ToString();
+		if(_unitPerimeterIdentifier == 0)
+        {
+            return Convert.ToString("0");
+        }
+        else if(_unitPerimeterIdentifier == 1)
+        {
+            return Math.Round((thisTriangle.Side1 + thisTriangle.Side2 + thisTriangle.Side3), 2).ToString() + " in";
+        }
+        else if(_unitPerimeterIdentifier == 2)
+        {
+            return Math.Round((thisTriangle.Side1 + thisTriangle.Side2 + thisTriangle.Side3), 2).ToString() + " cm";
+        }
+        else if(_unitPerimeterIdentifier == 3)
+        {
+            return Math.Round((thisTriangle.Side1 + thisTriangle.Side2 + thisTriangle.Side3), 2).ToString() + " m";
+        }
+        else if(_unitPerimeterIdentifier == 4)
+        {
+            return Math.Round((thisTriangle.Side1 + thisTriangle.Side2 + thisTriangle.Side3), 2).ToString() + " km";
+        }
+        else
+        {
+            return Math.Round((thisTriangle.Side1 + thisTriangle.Side2 + thisTriangle.Side3), 2).ToString();
+        }
 	}
 
 	private string CalculateTriangleVolume()
@@ -65,9 +155,32 @@ public partial class Triangle : ContentPage, INotifyPropertyChanged
 		{
 			thisTriangle.Height = 0;
 		}
-		return Math.Round((Math.PI * Math.Pow(thisTriangle.BaseRadius, 2) * thisTriangle.Height) / 3, 2).ToString();
-	}
-
+		if(_unitVolumeIdentifier == 0)
+        {
+            return Convert.ToString("0");
+        }
+        else if(_unitVolumeIdentifier == 1)
+        {
+            return Math.Round((Math.PI * Math.Pow(thisTriangle.BaseRadius, 2) * thisTriangle.Height) / 3, 2).ToString() + " in";
+        }
+        else if(_unitVolumeIdentifier == 2)
+        {
+            return Math.Round((Math.PI * Math.Pow(thisTriangle.BaseRadius, 2) * thisTriangle.Height) / 3, 2).ToString() + " cm";
+        }
+        else if(_unitVolumeIdentifier == 3)
+        {
+            return Math.Round((Math.PI * Math.Pow(thisTriangle.BaseRadius, 2) * thisTriangle.Height) / 3, 2).ToString() + " m";
+        }
+        else if(_unitVolumeIdentifier == 4)
+        {
+            return Math.Round((Math.PI * Math.Pow(thisTriangle.BaseRadius, 2) * thisTriangle.Height) / 3, 2).ToString() + " km";
+        }
+        else
+        {
+            return Math.Round((Math.PI * Math.Pow(thisTriangle.BaseRadius, 2) * thisTriangle.Height) / 3, 2).ToString();
+        }
+  
+    }
 	private string CalculateTriangleArea() 
 	{
 		double bases = 0;
@@ -88,7 +201,31 @@ public partial class Triangle : ContentPage, INotifyPropertyChanged
 		{
 			thisTriangle.AreaHeight = 0;
 		}
-		return Math.Round(((thisTriangle.Base * thisTriangle.AreaHeight) / 2),2).ToString();
+		if(_unitAreaIdentifier == 0)
+        {
+            return Convert.ToString("0");
+        }
+        else if(_unitAreaIdentifier == 1)
+        {
+            return Math.Round(((thisTriangle.Base * thisTriangle.AreaHeight) / 2), 2).ToString() + " in";
+        }
+        else if(_unitAreaIdentifier == 2)
+        {
+            return Math.Round(((thisTriangle.Base * thisTriangle.AreaHeight) / 2), 2).ToString() + " cm";
+        }
+        else if(_unitAreaIdentifier == 3)
+        {
+            return Math.Round(((thisTriangle.Base * thisTriangle.AreaHeight) / 2), 2).ToString() + " m";
+        }
+        else if(_unitAreaIdentifier == 4)
+        {
+            return Math.Round(((thisTriangle.Base * thisTriangle.AreaHeight) / 2), 2).ToString() + " km";
+        }
+        else
+        {
+            return Math.Round(((thisTriangle.Base * thisTriangle.AreaHeight) / 2), 2).ToString();
+        }
+
 	}
 
 	private void OnClearTriangleAreaButtonClicked(object sender, EventArgs e)
