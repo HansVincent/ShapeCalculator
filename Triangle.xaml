@@ -24,7 +24,9 @@
                     VerticalOptions="Center"/>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Edge 1" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTriangleArea1" WidthRequest="200"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtTriangleArea1" WidthRequest="200"/>
+                    </Border>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Edge 2" WidthRequest="100" VerticalOptions="Center"/>
@@ -41,15 +43,15 @@
                     VerticalOptions="Center" Margin="0,25,0,0"/>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Side 1" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTrianglePerimeter1" WidthRequest="200"/>
+                    <Entry x:Name="txtTriangleSide1" WidthRequest="200"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Side 2" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTrianglePerimeter2" WidthRequest="200"/>
+                    <Entry x:Name="txtTriangleSide2" WidthRequest="200"/>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Margin="0,25,0,0">
                     <Label Text="Side 3" WidthRequest="100" VerticalOptions="Center"/>
-                    <Entry x:Name="txtTrianglePerimeter3" WidthRequest="200"/>
+                    <Entry x:Name="txtTriangleSide3" WidthRequest="200"/>
                 </HorizontalStackLayout>
                 
                 
@@ -75,9 +77,18 @@
                     VerticalOptions="Center"/>
             </VerticalStackLayout>
             <VerticalStackLayout x:Name="TriangleResults" FlexLayout.Basis="350" FlexLayout.Order="3" HorizontalOptions="Center">
-                <Label
-                    Text="Fourth Test"
-                    VerticalOptions="Center"/>
+                <Label Text="Result"  Margin="0,50,0,0"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Border Stroke="Black" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45">
+                        <Label x:Name="txtTrianglePerimeterResults" Text="Test" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Button Text="Calculate" BorderColor="Black" Clicked="OnCalculatePerimeterButtonClicked" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="0,5,0,0"/>
+                    <Button Text ="Clear" TextColor="Black" BackgroundColor="White" BorderColor="Black" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="10,5,0,0" WidthRequest="110"/>
+                </HorizontalStackLayout>
+
+
             </VerticalStackLayout>
         </FlexLayout>
     </ScrollView>
