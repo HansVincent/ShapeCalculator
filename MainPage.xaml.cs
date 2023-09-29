@@ -10,7 +10,7 @@
 
         private async void OnStartClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Rectangle());
+            await Navigation.PushAsync(new Triangle());
         }
 
     }

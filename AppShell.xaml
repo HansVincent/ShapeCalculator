@@ -4,11 +4,27 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ShapeCalculator"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+    <ShellContent
+        Title="Square"
+        ContentTemplate="{DataTemplate local:Square}"
+        Route="Square"/>
+    <ShellContent
+    Title="Rectangle"
+    ContentTemplate="{DataTemplate local:Rectangle}"
+    Route="Rectangle"/>
+    <ShellContent
+    Title="Triangle"
+    ContentTemplate="{DataTemplate local:Triangle}"
+    Route="Triangle"/>
+    <ShellContent
+    Title="Circle"
+    ContentTemplate="{DataTemplate local:Circle}"
+    Route="Circle"/>
 
 </Shell>

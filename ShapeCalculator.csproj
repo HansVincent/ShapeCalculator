@@ -48,11 +48,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\circle_area.png" />
+	  <None Remove="Resources\Images\circle_perimeter.png" />
+	  <None Remove="Resources\Images\circle_sphere.png" />
 	  <None Remove="Resources\Images\mauitest.png" />
 	  <None Remove="Resources\Images\rectangle_area.png" />
 	  <None Remove="Resources\Images\rectangle_perimeter.png" />
 	  <None Remove="Resources\Images\rectangle_volume.png" />
 	  <None Remove="Resources\Images\shape_calculator_img.png" />
+	  <None Remove="Resources\Images\square_area.png" />
+	  <None Remove="Resources\Images\square_cube.png" />
+	  <None Remove="Resources\Images\square_perimeter.png" />
 	  <None Remove="Resources\Images\triangle_area.png" />
 	  <None Remove="Resources\Images\triangle_perimeter.png" />
 	  <None Remove="Resources\Images\triangle_volume.png" />
@@ -77,6 +83,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Circle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Rectangle.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
