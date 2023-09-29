@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShapeCalculator.Rectangle"
+             Title="Rectangle">
+    <ScrollView>
+        <FlexLayout Direction="Row" VerticalOptions="Center" HorizontalOptions="Center" >
+            <VerticalStackLayout x:Name="RectangleImages" FlexLayout.Basis="350" FlexLayout.Order="0">
+                <HorizontalStackLayout>
+                    <Image Source="rectangle_area.png" Aspect="AspectFit" HeightRequest="250" WidthRequest="350"/>
+                </HorizontalStackLayout>
+                <Image Source="rectangle_perimeter.png" Aspect="AspectFit" HeightRequest="250" WidthRequest="250"/>
+                <Image Source="rectangle_volume.png" HeightRequest="250" WidthRequest="250"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name ="RectangleEntries"  FlexLayout.Basis="350" FlexLayout.Order="1" HorizontalOptions="Center">
+                <Label
+                Text="Area"
+                VerticalOptions="Center" Margin="0,150,0,0"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Length (l)" WidthRequest="100" VerticalOptions="Center"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtRectangleLength" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Width (w)" WidthRequest="100" VerticalOptions="Center"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtRectangleWidth" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <Label
+                    Text="Volume - Rectangular Tank"
+                    VerticalOptions="Center" Margin="0,180,0,0"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Length (l)" WidthRequest="100" VerticalOptions="Center"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtRectangleVolumeLength" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Width (l)" WidthRequest="100" VerticalOptions="Center"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtRectangleVolumeWidth" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Label Text="Height (h)" WidthRequest="100" VerticalOptions="Center"/>
+                    <Border Stroke="Black">
+                        <Entry x:Name="txtRectangleVolumeHeight" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="RectanglePickers" FlexLayout.Basis="350" FlexLayout.Order="2" HorizontalOptions="Center">
+                <HorizontalStackLayout Margin="0,210,0,0">
+                    <Border Stroke="black" Margin="0,20,0,0" HeightRequest="45" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Picker x:Name="pickerAreaPerimeterUnit"  ItemsSource="{Binding Units}" WidthRequest="200"  SelectedIndexChanged="pickerUnits_AreaSelectedIndexChanged"/>
+                    </Border>
+                </HorizontalStackLayout>
+ 
+                <HorizontalStackLayout Margin="0,333,0,0">
+                    <Border Stroke="black" WidthRequest="200">
+                        <Picker x:Name="pickerVolumeUnit" ItemsSource="{Binding Units}" WidthRequest="200"  SelectedIndexChanged="pickerUnits_VolumeSelectedIndexChanged"/>
+                    </Border>
+                </HorizontalStackLayout>
+
+
+            </VerticalStackLayout>
+            <VerticalStackLayout x:Name="RectangleResults" FlexLayout.Basis="350" FlexLayout.Order="3" HorizontalOptions="Center">
+                <Label Text="Result Area" Margin="0,150,0,0"/>
+                <HorizontalStackLayout Margin="0,10,0,0">
+                    <Border Stroke="Black" Margin="0,10,0,0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45">
+                        <Label x:Name="txtRectangleAreaResults" Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <Label Text="Result Perimeter"  Margin="0,10,0,0"/>
+                <HorizontalStackLayout Margin="0,10,0,0">
+                    <Border Stroke="Black" Margin="0,10,0,0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45">
+                        <Label x:Name="txtRectanglePerimeterResults" Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Button Text="Calculate" BorderColor="Black" Clicked="OnCalculateRectangleAreaPerimeterButtonClicked" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="0,5,0,0"/>
+                    <Button Text ="Clear" TextColor="Black" Clicked="OnClearRectangleAreaPerimeterButtonClicked" BackgroundColor="White" BorderColor="Black" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="10,5,0,0" WidthRequest="110"/>
+                </HorizontalStackLayout>
+
+                <Label Text="Result"  Margin="0,160,0,0"/>
+                <HorizontalStackLayout Margin="0,25,0,0">
+                    <Border Stroke="Black" Margin="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="45">
+                        <Label x:Name="txtRectangleVolumeResults" Text="" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" WidthRequest="200"/>
+                    </Border>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Button Text="Calculate" BorderColor="Black" Clicked="OnCalculateRectangleVolumeButtonClicked" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="0,5,0,0"/>
+                    <Button Text ="Clear" TextColor="Black" Clicked="OnClearRectangleVolumeButtonClicked" BackgroundColor="White" BorderColor="Black" CornerRadius="10" FontAttributes="Bold" FontSize="15" Margin="10,5,0,0" WidthRequest="110"/>
+                </HorizontalStackLayout>
+
+
+            </VerticalStackLayout>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

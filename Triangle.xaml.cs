@@ -7,7 +7,6 @@ namespace ShapeCalculator;
 public partial class Triangle : ContentPage, INotifyPropertyChanged
 {
 	TriangleViewModel thisTriangle = new TriangleViewModel();
-	BaseParameters triangleParameters = new BaseParameters();
     private ObservableCollection<string> _units;
     private int _unitAreaIdentifier = -1;
     private int _unitPerimeterIdentifier = -1;

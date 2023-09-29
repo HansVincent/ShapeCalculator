@@ -29,7 +29,7 @@ namespace ShapeCalculator.ShapeCalculatorViewModels
             set
             {
                 _base = value;
-                OnPropertyChanged(nameof(_base));
+                OnPropertyChanged(nameof(Base));
             }
         }
 

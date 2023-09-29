@@ -4,9 +4,13 @@
              x:Class="ShapeCalculator.Triangle"
              Title="Triangle">
     <ScrollView>
-        <FlexLayout Direction="Row" >
+        <FlexLayout Direction="Row" VerticalOptions="Center" HorizontalOptions="Center" >
             <VerticalStackLayout x:Name="TriangleImages" FlexLayout.Basis="350" FlexLayout.Order="0">
-            
+                <HorizontalStackLayout>
+                    <Image Source="triangle_area.png" Aspect="AspectFit" HeightRequest="250" WidthRequest="250"/>
+                </HorizontalStackLayout>
+                <Image Source="triangle_perimeter.png" Aspect="AspectFit" HeightRequest="250" WidthRequest="250"/>
+                <Image Source="triangle_volume.png" HeightRequest="250" WidthRequest="250"/>
             </VerticalStackLayout>
             <VerticalStackLayout x:Name ="TriangleEntries"  FlexLayout.Basis="350" FlexLayout.Order="1" HorizontalOptions="Center">
                 <Label
